@@ -187,6 +187,37 @@ st.markdown("""
         margin-top: 8px;
         letter-spacing: 0.3px;
     }
+
+    /* ── Hide "Navigasi" radio label ── */
+    [data-testid="stSidebar"] .stRadio > label {
+        display: none !important;
+    }
+
+    /* ── Fix expander icon overlap ── */
+    [data-testid="stExpander"] summary {
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        padding: 14px 16px !important;
+    }
+    [data-testid="stExpander"] summary p {
+        font-size: 15px !important;
+        font-weight: 500 !important;
+    }
+    [data-testid="stExpander"] details {
+        border: 1px solid rgba(147,197,253,0.35) !important;
+        border-radius: 10px !important;
+        margin-bottom: 8px !important;
+        background: rgba(255,255,255,0.45) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+
+    /* ── Fix file uploader double text ── */
+    [data-testid="stFileUploaderDropzoneInstructions"] div span:last-child {
+        display: none !important;
+    }
+    [data-testid="stFileUploader"] label {
+        font-size: 14px !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -224,7 +255,7 @@ with st.sidebar:
          "Prediction / Analysis",
          "Visualization",
          "About"],
-        label_visibility="collapsed"
+        label_visibility="hidden"
     )
 
     st.markdown("""
@@ -1069,8 +1100,8 @@ elif page == "About":
         st.markdown("---")
         st.markdown("### Tim Proyek")
         members = [
-            ("Nama Anggota 1", "NIM: 22XXXXXXX", "Ketua — Modeling & Evaluasi"),
-            ("Nama Anggota 2", "NIM: 22XXXXXXX", "Anggota — EDA, Visualisasi & Deployment"),
+            ("M Ridho Aulia", "NIM: 24051214116", "Anggota— Modeling & Evaluasi"),
+            ("Rozak M Limbong", "NIM: 24051214116", "Anggota — EDA, Visualisasi & Deployment"),
         ]
         cols = st.columns(2)
         for col, (name, nim, role) in zip(cols, members):
